@@ -1,0 +1,27 @@
+code#2:
+class Employee:
+    def __init__(self,name,id_number):
+        self.name = name
+        self.id_number = id_number
+
+    def display_info(self):
+        return f"Employee Name: {self.name}, ID: {self.id_number}"
+
+class ShiftSupervisor(Employee):
+    def __init__(self,name,id_number,annual_salary,annual_bonus):
+        super().__init__(name,id_number)
+        self.annual_salary = annual_salary
+        self.annual_bonus = annual_bonus
+
+    def total_compensation(self):
+        return self.annual_salary + self.annual_bonus
+
+    def display_info(self):
+        base_info = super().display_info()
+        return f"{base_info}, Annual Salary: {self.annual_salary}, Annual Bonus: {self.annual_bonus}, Total Compensation: {self.total_compensation()}"
+def main():
+        supervisor = ShiftSupervisor("Alice Johnson", 101,60000,5000)
+        print(supervisor.display_info())
+
+if __name__ == "__main__":
+    main()
